@@ -137,7 +137,7 @@
             </div>
             <div class="module pan">
                 🍳
-                <input type="range">
+                <input type="range" min="-1" max="1" step="any" value="0">
             </div>
             <div class="module q">
                 🇶
@@ -541,6 +541,7 @@
         let oscillators = [];
         let gainNodes = [];
         let filters = [];
+        let stereoPannerNodes = [];
 
         const play = document.getElementById('top-banner');
         play.addEventListener("click", () => {
@@ -551,10 +552,13 @@
                 gainNodes[i] = ctx.createGain();
                 gainNodes[i].gain.setValueAtTime(0, ctx.currentTime);
 
+                stereoPannerNodes[i] = ctx.createStereoPanner();
+
                 filters[i] = ctx.createBiquadFilter();
 
                 oscillators[i].connect(gainNodes[i]);
-                gainNodes[i].connect(filters[i]);
+                gainNodes[i].connect(stereoPannerNodes[i]);
+                stereoPannerNodes[i].connect(filters[i]);
                 filters[i].connect(ctx.destination);
                 oscillators[i].start();
             }
@@ -593,6 +597,13 @@
             filterCutOffCtrls[i].addEventListener("input", (e) => {
                 filters[i].type = filterCtrls[i].value;
                 filters[i].frequency.setValueAtTime(e.target.value, ctx.currentTime + 0.05);
+            })
+        }
+
+        const panCtrls = document.getElementsByClassName('pan');
+        for(let i = 0; i < panCtrls.length; i++){
+            panCtrls[i].addEventListener("input", (e) => {
+                stereoPannerNodes[i].pan.setValueAtTime(e.target.value, ctx.currentTime + 0.05);
             })
         }
 
