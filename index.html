@@ -31,1093 +31,496 @@
             color: black;
         }
 
+        select {
+            background-color: black;
+        }
+
+        .channel {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+
+        .module {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgb(41, 233, 41);
+            margin: 3px;
+        }
+
     </style>
 </head>
 <body>
     <header>
         <marquee behavior="scroll" direction="right" class="banner" id="top-banner">
-            <p>🎵🎵🎵🎵🎵🎵 🎵🎵🎵🎵     🎵🎵🎵🎵🎵🎵🎵🎵     🎵🎵🎵🎵🎵🎵🎵🎵 🎵🎵🎵 🎵🎵🎵</p>
+            <p>▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️▶️</p>
         </marquee>
         <nav>
-            <a href="/" target="_blank">link</a>
-            😻
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             👀
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             ☢️
-            <a href="/" target="_blank">link</a>
-            🙈
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             🛢️
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             🍕
-            <a href="/" target="_blank">link</a>
-            💃
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             💬
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             🍻
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             👁️
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             💀
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             💧
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             🌈
-            <a href="/" target="_blank">link</a>
-            🍀
-            <a href="/" target="_blank">link</a>
-            🫠
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             🔥
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             🌲
-            <a href="/" target="_blank">link</a>
-            🎅
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             ⭐
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             🍄
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             🎸
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             😈
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             👽
-            <a href="/" target="_blank">link</a>
-            😱
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             🔪
-            <a href="/" target="_blank">link</a>
-            😎
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             ✨
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             🛀
-            <a href="/" target="_blank">link</a>
-            😴
-            <a href="/" target="_blank">link</a>
-            🌑
-            <a href="/" target="_blank">link</a>
-            ☀️
-            <a href="/" target="_blank">link</a>
+            <a href="/" target="_blank">new tab</a>
             🪐
+            <a href="/" target="_blank">new tab</a>
+            🌑
+            <a href="/" target="_blank">new tab</a>
+            ☀️
+            <a href="/" target="_blank">new tab</a>
         </nav>
     </header>
 
     <div class="controls">
-        <div class="sliders">
-            <input class="vol" type="range" min="0" max="1" step="any" value="0">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
+        <div class="output channel">
+            <p>1.</p>
+            <div class="module vol">
+                🔊
+                <input class="vol" type="range" min="0" max="1" step="any" value="0">
+            </div>
+            <div class="module freq">
+                🌊
+                <input type="range" min="50" max="1000" step="any" value="500">
+            </div>
+            <div class="module shape">
+                ⚒️
+                <select class="wave-shape" name="wave-shape">
+                    <option value="sine">~~~</option>
+                    <option value="square">🟩</option>
+                    <option value="triangle">📐</option>
+                    <option value="sawtooth">🪚</option>
+                </select>
+            </div>
+            <div class="module pulse-width">
+                💓
+                <input type="range">
+            </div>
+            <div class="module cut-off">
+                ✂️
+                <input type="range">
+            </div>
+            <div class="module pan">
+                🍳
+                <input type="range">
+            </div>
+            <div class="module q">
+                🇶
+                <input type="range">
+            </div>
+            <div class="module phase">
+                🌓
+                <input type="range">
+            </div>
+            <div class="module delay">
+                🚂
+                <input type="range">
+            </div>
         </div>
-        <div class="checkboxes">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-        </div>
-        <div class="buttons">
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-        </div>
-        <div class="color-pickers">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-        </div>
-        <div class="files">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-        </div>
-        <div class="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-        </div>
-        <div class="passwords">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-        </div>
-        <div class="radios">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-        </div>
-    </div>
-    <marquee behavior="scroll" direction="left" class="banner">
-        <p>🎵🎵🎵🎵🎵🎵 🎵🎵🎵🎵     🎵🎵🎵🎵🎵🎵🎵🎵     🎵🎵🎵🎵🎵🎵🎵🎵 🎵🎵🎵 🎵🎵🎵</p>
-    </marquee>
 
-    <div class="controls">
-        <div class="sliders">
-            <input class="vol" type="range" min="0" max="1" step="any" value="0">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
+        <div class="output channel">
+            <p>2.</p>
+            <div class="module vol">
+                🔊
+                <input class="vol" type="range" min="0" max="1" step="any" value="0">
+            </div>
+            <div class="module freq">
+                🌊
+                <input type="range">
+            </div>
+            <div class="module shape">
+                ⚒️
+                <select class="wave-shape" name="wave-shape">
+                    <option value="sine">~~~</option>
+                    <option value="square">🟩</option>
+                    <option value="triangle">📐</option>
+                    <option value="sawtooth">🪚</option>
+                </select>
+            </div>
+            <div class="module pulse-width">
+                💓
+                <input type="range">
+            </div>
+            <div class="module cut-off">
+                ✂️
+                <input type="range">
+            </div>
+            <div class="module pan">
+                🍳
+                <input type="range">
+            </div>
+            <div class="module q">
+                🇶
+                <input type="range">
+            </div>
+            <div class="module phase">
+                🌓
+                <input type="range">
+            </div>
+            <div class="module delay">
+                🚂
+                <input type="range">
+            </div>
         </div>
-        <div class="checkboxes">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-        </div>
-        <div class="buttons">
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-        </div>
-        <div class="color-pickers">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-        </div>
-        <div class="files">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-        </div>
-        <div class="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-        </div>
-        <div class="passwords">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-        </div>
-        <div class="radios">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-        </div>
-    </div>
-    <marquee behavior="scroll" direction="right" class="banner">
-        <p>🎵🎵🎵🎵🎵🎵 🎵🎵🎵🎵     🎵🎵🎵🎵🎵🎵🎵🎵     🎵🎵🎵🎵🎵🎵🎵🎵 🎵🎵🎵 🎵🎵🎵</p>
-    </marquee>
 
-    <div class="controls">
-        <div class="sliders">
-            <input class="vol" type="range" min="0" max="1" step="any" value="0">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
+        <div class="output channel">
+            <p>3.</p>
+            <div class="module vol">
+                🔊
+                <input class="vol" type="range" min="0" max="1" step="any" value="0">
+            </div>
+            <div class="module freq">
+                🌊
+                <input type="range">
+            </div>
+            <div class="module shape">
+                ⚒️
+                <select class="wave-shape" name="wave-shape">
+                    <option value="sine">~~~</option>
+                    <option value="square">🟩</option>
+                    <option value="triangle">📐</option>
+                    <option value="sawtooth">🪚</option>
+                </select>
+            </div>
+            <div class="module pulse-width">
+                💓
+                <input type="range">
+            </div>
+            <div class="module cut-off">
+                ✂️
+                <input type="range">
+            </div>
+            <div class="module pan">
+                🍳
+                <input type="range">
+            </div>
+            <div class="module q">
+                🇶
+                <input type="range">
+            </div>
+            <div class="module phase">
+                🌓
+                <input type="range">
+            </div>
+            <div class="module delay">
+                🚂
+                <input type="range">
+            </div>
         </div>
-        <div class="checkboxes">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-        </div>
-        <div class="buttons">
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-        </div>
-        <div class="color-pickers">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-        </div>
-        <div class="files">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-        </div>
-        <div class="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-        </div>
-        <div class="passwords">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-        </div>
-        <div class="radios">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-        </div>
-    </div>
-    <marquee behavior="scroll" direction="left" class="banner">
-        <p>🎵🎵🎵🎵🎵🎵 🎵🎵🎵🎵     🎵🎵🎵🎵🎵🎵🎵🎵     🎵🎵🎵🎵🎵🎵🎵🎵 🎵🎵🎵 🎵🎵🎵</p>
-    </marquee>
 
-    <div class="controls">
-        <div class="sliders">
-            <input class="vol" type="range" min="0" max="1" step="any" value="0">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
-            <input type="range">
+        <div class="output channel">
+            <p>4.</p>
+            <div class="module vol">
+                🔊
+                <input class="vol" type="range" min="0" max="1" step="any" value="0">
+            </div>
+            <div class="module freq">
+                🌊
+                <input type="range">
+            </div>
+            <div class="module shape">
+                ⚒️
+                <select class="wave-shape" name="wave-shape">
+                    <option value="sine">~~~</option>
+                    <option value="square">🟩</option>
+                    <option value="triangle">📐</option>
+                    <option value="sawtooth">🪚</option>
+                </select>
+            </div>
+            <div class="module pulse-width">
+                💓
+                <input type="range">
+            </div>
+            <div class="module cut-off">
+                ✂️
+                <input type="range">
+            </div>
+            <div class="module pan">
+                🍳
+                <input type="range">
+            </div>
+            <div class="module q">
+                🇶
+                <input type="range">
+            </div>
+            <div class="module phase">
+                🌓
+                <input type="range">
+            </div>
+            <div class="module delay">
+                🚂
+                <input type="range">
+            </div>
         </div>
-        <div class="checkboxes">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-            <input type="checkbox">
-        </div>
-        <div class="buttons">
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-            <button>button</button>
-        </div>
-        <div class="color-pickers">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-            <input class="color-input" type="color">
-        </div>
-        <div class="files">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-            <input type="file">
-        </div>
-        <div class="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-            <input type="number">
-        </div>
-        <div class="passwords">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-            <input type="password">
-        </div>
-        <div class="radios">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
-            <input type="radio">
+
+        <div class="control channel">
+            <div class="module lfo">
+                🕹️
+                <input type="range">
+                <div class="checkboxes">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                </div>
+                <select class="ctrl-param" name="ctrl-param">
+                    <option value="volume">🔊</option>
+                    <option value="frequency">🌊</option>
+                    <option value="shape">⚒️</option>
+                    <option value="pulse-width">💓</option>
+                    <option value="cut-off">✂️</option>
+                    <option value="pan">🍳</option>
+                    <option value="q">🇶</option>
+                    <option value="phase">🌓</option>
+                    <option value="delay">🚂</option>
+                </select>
+            </div>
+            <div class="module lfo">
+                🕹️
+                <input type="range">
+                <div class="checkboxes">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                </div>
+                <select class="ctrl-param" name="ctrl-param">
+                    <option value="volume">🔊</option>
+                    <option value="frequency">🌊</option>
+                    <option value="shape">⚒️</option>
+                    <option value="pulse-width">💓</option>
+                    <option value="cut-off">✂️</option>
+                    <option value="pan">🍳</option>
+                    <option value="q">🇶</option>
+                    <option value="phase">🌓</option>
+                    <option value="delay">🚂</option>
+                </select>
+            </div>
+            <div class="module lfo">
+                🕹️
+                <input type="range">
+                <div class="checkboxes">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                </div>
+                <select class="ctrl-param" name="ctrl-param">
+                    <option value="volume">🔊</option>
+                    <option value="frequency">🌊</option>
+                    <option value="shape">⚒️</option>
+                    <option value="pulse-width">💓</option>
+                    <option value="cut-off">✂️</option>
+                    <option value="pan">🍳</option>
+                    <option value="q">🇶</option>
+                    <option value="phase">🌓</option>
+                    <option value="delay">🚂</option>
+                </select>
+            </div>
+            <div class="module lfo">
+                🕹️
+                <input type="range">
+                <div class="checkboxes">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                </div>
+                <select class="ctrl-param" name="ctrl-param">
+                    <option value="volume">🔊</option>
+                    <option value="frequency">🌊</option>
+                    <option value="shape">⚒️</option>
+                    <option value="pulse-width">💓</option>
+                    <option value="cut-off">✂️</option>
+                    <option value="pan">🍳</option>
+                    <option value="q">🇶</option>
+                    <option value="phase">🌓</option>
+                    <option value="delay">🚂</option>
+                </select>
+            </div>
+            <div class="module lfo">
+                🕹️
+                <input type="range">
+                <div class="checkboxes">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                </div>
+                <select class="ctrl-param" name="ctrl-param">
+                    <option value="volume">🔊</option>
+                    <option value="frequency">🌊</option>
+                    <option value="shape">⚒️</option>
+                    <option value="pulse-width">💓</option>
+                    <option value="cut-off">✂️</option>
+                    <option value="pan">🍳</option>
+                    <option value="q">🇶</option>
+                    <option value="phase">🌓</option>
+                    <option value="delay">🚂</option>
+                </select>
+            </div>
+            <div class="module lfo">
+                🕹️
+                <input type="range">
+                <div class="checkboxes">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                </div>
+                <select class="ctrl-param" name="ctrl-param">
+                    <option value="volume">🔊</option>
+                    <option value="frequency">🌊</option>
+                    <option value="shape">⚒️</option>
+                    <option value="pulse-width">💓</option>
+                    <option value="cut-off">✂️</option>
+                    <option value="pan">🍳</option>
+                    <option value="q">🇶</option>
+                    <option value="phase">🌓</option>
+                    <option value="delay">🚂</option>
+                </select>
+            </div>
+            <div class="module lfo">
+                🕹️
+                <input type="range">
+                <div class="checkboxes">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                </div>
+                <select class="ctrl-param" name="ctrl-param">
+                    <option value="volume">🔊</option>
+                    <option value="frequency">🌊</option>
+                    <option value="shape">⚒️</option>
+                    <option value="pulse-width">💓</option>
+                    <option value="cut-off">✂️</option>
+                    <option value="pan">🍳</option>
+                    <option value="q">🇶</option>
+                    <option value="phase">🌓</option>
+                    <option value="delay">🚂</option>
+                </select>
+            </div>
+            <div class="module lfo">
+                🕹️
+                <input type="range">
+                <div class="checkboxes">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                </div>
+                <select class="ctrl-param" name="ctrl-param">
+                    <option value="volume">🔊</option>
+                    <option value="frequency">🌊</option>
+                    <option value="shape">⚒️</option>
+                    <option value="pulse-width">💓</option>
+                    <option value="cut-off">✂️</option>
+                    <option value="pan">🍳</option>
+                    <option value="q">🇶</option>
+                    <option value="phase">🌓</option>
+                    <option value="delay">🚂</option>
+                </select>
+            </div>
+            <div class="module lfo">
+                🕹️
+                <input type="range">
+                <div class="checkboxes">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                </div>
+                <select class="ctrl-param" name="ctrl-param">
+                    <option value="volume">🔊</option>
+                    <option value="frequency">🌊</option>
+                    <option value="shape">⚒️</option>
+                    <option value="pulse-width">💓</option>
+                    <option value="cut-off">✂️</option>
+                    <option value="pan">🍳</option>
+                    <option value="q">🇶</option>
+                    <option value="phase">🌓</option>
+                    <option value="delay">🚂</option>
+                </select>
+            </div>
+            <div class="module lfo">
+                🕹️
+                <input type="range">
+                <div class="checkboxes">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                </div>
+                <select class="ctrl-param" name="ctrl-param">
+                    <option value="volume">🔊</option>
+                    <option value="frequency">🌊</option>
+                    <option value="shape">⚒️</option>
+                    <option value="pulse-width">💓</option>
+                    <option value="cut-off">✂️</option>
+                    <option value="pan">🍳</option>
+                    <option value="q">🇶</option>
+                    <option value="phase">🌓</option>
+                    <option value="delay">🚂</option>
+                </select>
+            </div>
+            <div class="module lfo">
+                🕹️
+                <input type="range">
+                <div class="checkboxes">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                </div>
+                <select class="ctrl-param" name="ctrl-param">
+                    <option value="volume">🔊</option>
+                    <option value="frequency">🌊</option>
+                    <option value="shape">⚒️</option>
+                    <option value="pulse-width">💓</option>
+                    <option value="cut-off">✂️</option>
+                    <option value="pan">🍳</option>
+                    <option value="q">🇶</option>
+                    <option value="phase">🌓</option>
+                    <option value="delay">🚂</option>
+                </select>
+            </div>
         </div>
     </div>
-    <marquee behavior="scroll" direction="right" class="banner">
-        <p>🎵🎵🎵🎵🎵🎵 🎵🎵🎵🎵     🎵🎵🎵🎵🎵🎵🎵🎵     🎵🎵🎵🎵🎵🎵🎵🎵 🎵🎵🎵 🎵🎵🎵</p>
-    </marquee>
 
     <script>
         // Banner animation
@@ -1144,28 +547,6 @@
             }, 200);
         }
 
-        // Set color pickers to random values on load
-        const colorInputs = document.getElementsByClassName('color-input');
-
-        for (let i = 0; i < colorInputs.length; i++){
-            let randR = Math.floor(Math.random() * 255);
-            let randG = Math.floor(Math.random() * 255);
-            let randB = Math.floor(Math.random() * 255);
-
-            let color = rgbToHex(randR, randG, randB);
-            
-            colorInputs[i].value = color;
-        }
-
-        function componentToHex(c) {
-            let hex = c.toString(16);
-            return hex.length == 1 ? "0" + hex : hex;
-        }
-
-        function rgbToHex(r, g, b) {
-            return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-        }
-
         // Audio stuff
         const ctx = new AudioContext();
         let oscillators = [];
@@ -1175,19 +556,27 @@
         play.addEventListener("click", () => {
             for(let i = 0; i < 4; i++){
                 oscillators[i] = ctx.createOscillator();
-                oscillators[i].frequency.setValueAtTime(1000, ctx.currentTime);
+                oscillators[i].frequency.setValueAtTime(500, ctx.currentTime);
                 gainNodes[i] = ctx.createGain();
                 gainNodes[i].gain.setValueAtTime(0, ctx.currentTime);
                 oscillators[i].connect(gainNodes[i]);
                 gainNodes[i].connect(ctx.destination);
                 oscillators[i].start();
             }
+            play.innerHTML = "<p>⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️</p>"
         })
         
         const volCtrls = document.getElementsByClassName('vol');
         for(let i = 0; i < volCtrls.length; i++){
             volCtrls[i].addEventListener("input", (e) => {
                 gainNodes[i].gain.linearRampToValueAtTime(e.target.value, ctx.currentTime + 0.05);
+            })
+        } 
+
+        const freqCtrls = document.getElementsByClassName('freq');
+        for(let i = 0; i < freqCtrls.length; i++){
+            freqCtrls[i].addEventListener("input", (e) => {
+                oscillators[i].frequency.linearRampToValueAtTime(e.target.value, ctx.currentTime + 0.05);
             })
         } 
 
