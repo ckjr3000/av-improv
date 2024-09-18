@@ -141,7 +141,7 @@
             </div>
             <div class="module q">
                 🇶
-                <input type="range">
+                <input type="range" min="0" max="100" step="any">
             </div>
             <div class="module phase">
                 🌓
@@ -604,6 +604,13 @@
         for(let i = 0; i < panCtrls.length; i++){
             panCtrls[i].addEventListener("input", (e) => {
                 stereoPannerNodes[i].pan.setValueAtTime(e.target.value, ctx.currentTime + 0.05);
+            })
+        }
+
+        const qCtrls = document.getElementsByClassName('q');
+        for(let i = 0; i < qCtrls.length; i++){
+            qCtrls[i].addEventListener("input", (e) => {
+                filters[i].Q.value = e.target.value;
             })
         }
 
