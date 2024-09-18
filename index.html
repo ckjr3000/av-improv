@@ -109,7 +109,7 @@
     <div class="controls">
         <div class="output channel">
             <p>1.</p>
-            <div class="module vol">
+            <div class="module volume">
                 🔊
                 <input class="vol" type="range" min="0" max="1" step="any" value="0">
             </div>
@@ -154,7 +154,7 @@
 
         <div class="output channel">
             <p>2.</p>
-            <div class="module vol">
+            <div class="module volume">
                 🔊
                 <input class="vol" type="range" min="0" max="1" step="any" value="0">
             </div>
@@ -199,7 +199,7 @@
 
         <div class="output channel">
             <p>3.</p>
-            <div class="module vol">
+            <div class="module volume">
                 🔊
                 <input class="vol" type="range" min="0" max="1" step="any" value="0">
             </div>
@@ -244,7 +244,7 @@
 
         <div class="output channel">
             <p>4.</p>
-            <div class="module vol">
+            <div class="module volume">
                 🔊
                 <input class="vol" type="range" min="0" max="1" step="any" value="0">
             </div>
@@ -567,6 +567,7 @@
         })
         
         const volCtrls = document.getElementsByClassName('vol');
+        console.log(volCtrls.length);
         for(let i = 0; i < volCtrls.length; i++){
             volCtrls[i].addEventListener("input", (e) => {
                 gainNodes[i].gain.linearRampToValueAtTime(e.target.value, ctx.currentTime + 0.05);
@@ -577,6 +578,13 @@
         for(let i = 0; i < freqCtrls.length; i++){
             freqCtrls[i].addEventListener("input", (e) => {
                 oscillators[i].frequency.linearRampToValueAtTime(e.target.value, ctx.currentTime + 0.05);
+            })
+        } 
+
+        const shapeCtrls = document.getElementsByClassName('shape');
+        for(let i = 0; i < shapeCtrls.length; i++){
+            shapeCtrls[i].addEventListener("change", (e) => {
+                oscillators[i].type = e.target.value;
             })
         } 
 
