@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INPUT</title>
+    <title>WebSynth</title>
     <style>
         * {
             font-family: monospace;
@@ -126,13 +126,14 @@
                     <option value="sawtooth">🪚</option>
                 </select>
             </div>
-            <div class="module pulse-width">
-                💓
-                <input type="range">
-            </div>
             <div class="module cut-off">
                 ✂️
-                <input type="range">
+                <select class="filter-type" name="filter-type" value="bandpass">
+                    <option value="lowpass">🪫</option>
+                    <option value="highpass">🥴</option>
+                    <option value="bandpass">🩹</option>
+                </select>
+                <input class="cut-off-freq" type="range" min="50" max="1000" step="any" value="500">
             </div>
             <div class="module pan">
                 🍳
@@ -170,10 +171,6 @@
                     <option value="triangle">📐</option>
                     <option value="sawtooth">🪚</option>
                 </select>
-            </div>
-            <div class="module pulse-width">
-                💓
-                <input type="range">
             </div>
             <div class="module cut-off">
                 ✂️
@@ -216,10 +213,6 @@
                     <option value="sawtooth">🪚</option>
                 </select>
             </div>
-            <div class="module pulse-width">
-                💓
-                <input type="range">
-            </div>
             <div class="module cut-off">
                 ✂️
                 <input type="range">
@@ -260,10 +253,6 @@
                     <option value="triangle">📐</option>
                     <option value="sawtooth">🪚</option>
                 </select>
-            </div>
-            <div class="module pulse-width">
-                💓
-                <input type="range">
             </div>
             <div class="module cut-off">
                 ✂️
@@ -551,16 +540,22 @@
         const ctx = new AudioContext();
         let oscillators = [];
         let gainNodes = [];
+        let filters = [];
 
         const play = document.getElementById('top-banner');
         play.addEventListener("click", () => {
             for(let i = 0; i < 4; i++){
                 oscillators[i] = ctx.createOscillator();
                 oscillators[i].frequency.setValueAtTime(500, ctx.currentTime);
+
                 gainNodes[i] = ctx.createGain();
                 gainNodes[i].gain.setValueAtTime(0, ctx.currentTime);
+
+                filters[i] = ctx.createBiquadFilter();
+
                 oscillators[i].connect(gainNodes[i]);
-                gainNodes[i].connect(ctx.destination);
+                gainNodes[i].connect(filters[i]);
+                filters[i].connect(ctx.destination);
                 oscillators[i].start();
             }
             play.innerHTML = "<p>⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️</p>"
@@ -586,7 +581,20 @@
             shapeCtrls[i].addEventListener("change", (e) => {
                 oscillators[i].type = e.target.value;
             })
-        } 
+        }
+        
+        const filterCtrls = document.getElementsByClassName('filter-type');
+        const filterCutOffCtrls = document.getElementsByClassName('cut-off-freq');
+        for(let i = 0; i < filterCtrls.length; i++){
+            filterCtrls[i].addEventListener("change", (e) => {
+                filters[i].type = e.target.value;
+                filters[i].frequency.setValueAtTime(filterCutOffCtrls[i].value, ctx.currentTime + 0.05);
+            })
+            filterCutOffCtrls[i].addEventListener("input", (e) => {
+                filters[i].type = filterCtrls[i].value;
+                filters[i].frequency.setValueAtTime(e.target.value, ctx.currentTime + 0.05);
+            })
+        }
 
     </script>
 </body>
