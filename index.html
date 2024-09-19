@@ -46,6 +46,7 @@
             flex-direction: column;
             border: 1px solid rgb(41, 233, 41);
             margin: 3px;
+            padding: 5px;
         }
 
     </style>
@@ -156,14 +157,14 @@
         </div>
 
         <div class="output channel">
-            <p>2.</p>
+            <p>1.</p>
             <div class="module volume">
                 🔊
                 <input class="vol" type="range" min="0" max="1" step="any" value="0">
             </div>
             <div class="module freq">
                 🌊
-                <input type="range">
+                <input type="range" min="50" max="1000" step="any" value="500">
             </div>
             <div class="module shape">
                 ⚒️
@@ -176,23 +177,78 @@
             </div>
             <div class="module cut-off">
                 ✂️
-                <input type="range">
+                <select class="filter-type" name="filter-type" value="bandpass">
+                    <option value="lowpass">🪫</option>
+                    <option value="highpass">🥴</option>
+                    <option value="bandpass">🩹</option>
+                </select>
+                <input class="cut-off-freq" type="range" min="50" max="1000" step="any" value="500">
             </div>
             <div class="module pan">
                 🍳
-                <input type="range">
+                <input type="range" min="-1" max="1" step="any" value="0">
             </div>
             <div class="module q">
                 🇶
-                <input type="range">
+                <input type="range" min="0" max="100" step="any">
             </div>
-            <div class="module phase">
-                🌓
-                <input type="range">
+            <div class="module shaper">
+                🌊
+                ⚒️
+                <input type="range" class="input-1" value="-1" min="-100" max="-1" step="any">
+                <input type="range" class="input-2" value="1" min="1" max="100" step="any">
             </div>
             <div class="module delay">
                 🚂
-                <input type="range">
+                <input type="range" min="0" max="10" step="0.05">
+            </div>
+        </div>
+
+        <div class="output channel">
+            <p>2.</p>
+            <div class="module volume">
+                🔊
+                <input class="vol" type="range" min="0" max="1" step="any" value="0">
+            </div>
+            <div class="module freq">
+                🌊
+                <input type="range" min="50" max="1000" step="any" value="500">
+            </div>
+            <div class="module shape">
+                ⚒️
+                <select class="wave-shape" name="wave-shape">
+                    <option value="sine">~~~</option>
+                    <option value="square">🟩</option>
+                    <option value="triangle">📐</option>
+                    <option value="sawtooth">🪚</option>
+                </select>
+            </div>
+            <div class="module cut-off">
+                ✂️
+                <select class="filter-type" name="filter-type" value="bandpass">
+                    <option value="lowpass">🪫</option>
+                    <option value="highpass">🥴</option>
+                    <option value="bandpass">🩹</option>
+                </select>
+                <input class="cut-off-freq" type="range" min="50" max="1000" step="any" value="500">
+            </div>
+            <div class="module pan">
+                🍳
+                <input type="range" min="-1" max="1" step="any" value="0">
+            </div>
+            <div class="module q">
+                🇶
+                <input type="range" min="0" max="100" step="any">
+            </div>
+            <div class="module shaper">
+                🌊
+                ⚒️
+                <input type="range" class="input-1" value="-1" min="-100" max="-1" step="any">
+                <input type="range" class="input-2" value="1" min="1" max="100" step="any">
+            </div>
+            <div class="module delay">
+                🚂
+                <input type="range" min="0" max="10" step="0.05">
             </div>
         </div>
 
@@ -204,7 +260,7 @@
             </div>
             <div class="module freq">
                 🌊
-                <input type="range">
+                <input type="range" min="50" max="1000" step="any" value="500">
             </div>
             <div class="module shape">
                 ⚒️
@@ -217,64 +273,30 @@
             </div>
             <div class="module cut-off">
                 ✂️
-                <input type="range">
+                <select class="filter-type" name="filter-type" value="bandpass">
+                    <option value="lowpass">🪫</option>
+                    <option value="highpass">🥴</option>
+                    <option value="bandpass">🩹</option>
+                </select>
+                <input class="cut-off-freq" type="range" min="50" max="1000" step="any" value="500">
             </div>
             <div class="module pan">
                 🍳
-                <input type="range">
+                <input type="range" min="-1" max="1" step="any" value="0">
             </div>
             <div class="module q">
                 🇶
-                <input type="range">
+                <input type="range" min="0" max="100" step="any">
             </div>
-            <div class="module phase">
-                🌓
-                <input type="range">
-            </div>
-            <div class="module delay">
-                🚂
-                <input type="range">
-            </div>
-        </div>
-
-        <div class="output channel">
-            <p>4.</p>
-            <div class="module volume">
-                🔊
-                <input class="vol" type="range" min="0" max="1" step="any" value="0">
-            </div>
-            <div class="module freq">
+            <div class="module shaper">
                 🌊
-                <input type="range">
-            </div>
-            <div class="module shape">
                 ⚒️
-                <select class="wave-shape" name="wave-shape">
-                    <option value="sine">~~~</option>
-                    <option value="square">🟩</option>
-                    <option value="triangle">📐</option>
-                    <option value="sawtooth">🪚</option>
-                </select>
-            </div>
-            <div class="module cut-off">
-                ✂️
-                <input type="range">
-            </div>
-            <div class="module pan">
-                🍳
-                <input type="range">
-            </div>
-            <div class="module q">
-                🇶
-                <input type="range">
-            </div>
-            <div class="module phase">
-                🌓
-                <input type="range">
+                <input type="range" class="input-1" value="-1" min="-100" max="-1" step="any">
+                <input type="range" class="input-2" value="1" min="1" max="100" step="any">
             </div>
             <div class="module delay">
                 🚂
-                <input type="range">
+                <input type="range" min="0" max="10" step="0.05">
             </div>
         </div>
 
@@ -283,232 +305,190 @@
                 🕹️
                 <input type="range">
                 <div class="checkboxes">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
+                    1.
+                    <input type="checkbox" value="1" name="checkboxes">
+                    2.
+                    <input type="checkbox" value="2" name="checkboxes">
+                    3.
+                    <input type="checkbox" value="3" name="checkboxes">
+                    4.
+                    <input type="checkbox" value="4" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
                     <option value="volume">🔊</option>
                     <option value="frequency">🌊</option>
-                    <option value="shape">⚒️</option>
-                    <option value="pulse-width">💓</option>
-                    <option value="cut-off">✂️</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
-                    <option value="phase">🌓</option>
-                    <option value="delay">🚂</option>
                 </select>
+                <button type="submit">connect</button>
             </div>
             <div class="module lfo">
                 🕹️
                 <input type="range">
                 <div class="checkboxes">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
+                    1.
+                    <input type="checkbox" value="1" name="checkboxes">
+                    2.
+                    <input type="checkbox" value="2" name="checkboxes">
+                    3.
+                    <input type="checkbox" value="3" name="checkboxes">
+                    4.
+                    <input type="checkbox" value="4" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
                     <option value="volume">🔊</option>
                     <option value="frequency">🌊</option>
-                    <option value="shape">⚒️</option>
-                    <option value="pulse-width">💓</option>
-                    <option value="cut-off">✂️</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
-                    <option value="phase">🌓</option>
-                    <option value="delay">🚂</option>
                 </select>
+                <button type="submit">connect</button>
             </div>
             <div class="module lfo">
                 🕹️
                 <input type="range">
                 <div class="checkboxes">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
+                    1.
+                    <input type="checkbox" value="1" name="checkboxes">
+                    2.
+                    <input type="checkbox" value="2" name="checkboxes">
+                    3.
+                    <input type="checkbox" value="3" name="checkboxes">
+                    4.
+                    <input type="checkbox" value="4" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
                     <option value="volume">🔊</option>
                     <option value="frequency">🌊</option>
-                    <option value="shape">⚒️</option>
-                    <option value="pulse-width">💓</option>
-                    <option value="cut-off">✂️</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
-                    <option value="phase">🌓</option>
-                    <option value="delay">🚂</option>
                 </select>
+                <button type="submit">connect</button>
             </div>
             <div class="module lfo">
                 🕹️
                 <input type="range">
                 <div class="checkboxes">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
+                    1.
+                    <input type="checkbox" value="1" name="checkboxes">
+                    2.
+                    <input type="checkbox" value="2" name="checkboxes">
+                    3.
+                    <input type="checkbox" value="3" name="checkboxes">
+                    4.
+                    <input type="checkbox" value="4" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
                     <option value="volume">🔊</option>
                     <option value="frequency">🌊</option>
-                    <option value="shape">⚒️</option>
-                    <option value="pulse-width">💓</option>
-                    <option value="cut-off">✂️</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
-                    <option value="phase">🌓</option>
-                    <option value="delay">🚂</option>
                 </select>
+                <button type="submit">connect</button>
             </div>
             <div class="module lfo">
                 🕹️
                 <input type="range">
                 <div class="checkboxes">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
+                    1.
+                    <input type="checkbox" value="1" name="checkboxes">
+                    2.
+                    <input type="checkbox" value="2" name="checkboxes">
+                    3.
+                    <input type="checkbox" value="3" name="checkboxes">
+                    4.
+                    <input type="checkbox" value="4" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
                     <option value="volume">🔊</option>
                     <option value="frequency">🌊</option>
-                    <option value="shape">⚒️</option>
-                    <option value="pulse-width">💓</option>
-                    <option value="cut-off">✂️</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
-                    <option value="phase">🌓</option>
-                    <option value="delay">🚂</option>
                 </select>
+                <button type="submit">connect</button>
             </div>
             <div class="module lfo">
                 🕹️
                 <input type="range">
                 <div class="checkboxes">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
+                    1.
+                    <input type="checkbox" value="1" name="checkboxes">
+                    2.
+                    <input type="checkbox" value="2" name="checkboxes">
+                    3.
+                    <input type="checkbox" value="3" name="checkboxes">
+                    4.
+                    <input type="checkbox" value="4" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
                     <option value="volume">🔊</option>
                     <option value="frequency">🌊</option>
-                    <option value="shape">⚒️</option>
-                    <option value="pulse-width">💓</option>
-                    <option value="cut-off">✂️</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
-                    <option value="phase">🌓</option>
-                    <option value="delay">🚂</option>
                 </select>
+                <button type="submit">connect</button>
             </div>
             <div class="module lfo">
                 🕹️
                 <input type="range">
                 <div class="checkboxes">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
+                    1.
+                    <input type="checkbox" value="1" name="checkboxes">
+                    2.
+                    <input type="checkbox" value="2" name="checkboxes">
+                    3.
+                    <input type="checkbox" value="3" name="checkboxes">
+                    4.
+                    <input type="checkbox" value="4" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
                     <option value="volume">🔊</option>
                     <option value="frequency">🌊</option>
-                    <option value="shape">⚒️</option>
-                    <option value="pulse-width">💓</option>
-                    <option value="cut-off">✂️</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
-                    <option value="phase">🌓</option>
-                    <option value="delay">🚂</option>
                 </select>
+                <button type="submit">connect</button>
             </div>
             <div class="module lfo">
                 🕹️
                 <input type="range">
                 <div class="checkboxes">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
+                    1.
+                    <input type="checkbox" value="1" name="checkboxes">
+                    2.
+                    <input type="checkbox" value="2" name="checkboxes">
+                    3.
+                    <input type="checkbox" value="3" name="checkboxes">
+                    4.
+                    <input type="checkbox" value="4" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
                     <option value="volume">🔊</option>
                     <option value="frequency">🌊</option>
-                    <option value="shape">⚒️</option>
-                    <option value="pulse-width">💓</option>
-                    <option value="cut-off">✂️</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
-                    <option value="phase">🌓</option>
-                    <option value="delay">🚂</option>
                 </select>
+                <button type="submit">connect</button>
             </div>
             <div class="module lfo">
                 🕹️
                 <input type="range">
                 <div class="checkboxes">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
+                    1.
+                    <input type="checkbox" value="1" name="checkboxes">
+                    2.
+                    <input type="checkbox" value="2" name="checkboxes">
+                    3.
+                    <input type="checkbox" value="3" name="checkboxes">
+                    4.
+                    <input type="checkbox" value="4" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
                     <option value="volume">🔊</option>
                     <option value="frequency">🌊</option>
-                    <option value="shape">⚒️</option>
-                    <option value="pulse-width">💓</option>
-                    <option value="cut-off">✂️</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
-                    <option value="phase">🌓</option>
-                    <option value="delay">🚂</option>
                 </select>
-            </div>
-            <div class="module lfo">
-                🕹️
-                <input type="range">
-                <div class="checkboxes">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                </div>
-                <select class="ctrl-param" name="ctrl-param">
-                    <option value="volume">🔊</option>
-                    <option value="frequency">🌊</option>
-                    <option value="shape">⚒️</option>
-                    <option value="pulse-width">💓</option>
-                    <option value="cut-off">✂️</option>
-                    <option value="pan">🍳</option>
-                    <option value="q">🇶</option>
-                    <option value="phase">🌓</option>
-                    <option value="delay">🚂</option>
-                </select>
-            </div>
-            <div class="module lfo">
-                🕹️
-                <input type="range">
-                <div class="checkboxes">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                    <input type="checkbox">
-                </div>
-                <select class="ctrl-param" name="ctrl-param">
-                    <option value="volume">🔊</option>
-                    <option value="frequency">🌊</option>
-                    <option value="shape">⚒️</option>
-                    <option value="pulse-width">💓</option>
-                    <option value="cut-off">✂️</option>
-                    <option value="pan">🍳</option>
-                    <option value="q">🇶</option>
-                    <option value="phase">🌓</option>
-                    <option value="delay">🚂</option>
-                </select>
+                <button type="submit">connect</button>
             </div>
         </div>
     </div>
@@ -575,8 +555,8 @@
             play.innerHTML = "<p>⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️⏹️</p>"
         })
         
+        // Direct Oscillator Controls
         const volCtrls = document.getElementsByClassName('vol');
-        console.log(volCtrls.length);
         for(let i = 0; i < volCtrls.length; i++){
             volCtrls[i].addEventListener("input", (e) => {
                 gainNodes[i].gain.linearRampToValueAtTime(e.target.value, ctx.currentTime + 0.05);
@@ -645,6 +625,50 @@
                 delayNodes[i].delayTime.linearRampToValueAtTime(e.target.value, ctx.currentTime + 0.05);
             })
         }
+
+        // LFOs
+        const lfos = document.querySelectorAll('.lfo');
+        let lfoOscillators = [];
+        let lfoGainNodes = [];
+
+        lfos.forEach((module, i) => {
+            const connectBtn = module.querySelector('button[type="submit"]');
+
+            lfoOscillators[i] = ctx.createOscillator();
+            lfoGainNodes[i] = ctx.createGain();
+
+            lfoOscillators[i].frequency.setValueAtTime(5, ctx.currentTime); 
+            lfoGainNodes[i].gain.setValueAtTime(50, ctx.currentTime);
+
+            connectBtn.addEventListener('click', function () {
+                const modulationVal = module.querySelector('input[type="range"]').value;
+                const checkboxes = module.querySelectorAll('input[type="checkbox"]:checked');
+                const modulationParam = module.querySelector('select.ctrl-param').value;
+
+                checkboxes.forEach(checkbox => {
+                    const channelIndex = parseInt(checkbox.value - 1);
+
+                    switch(modulationParam){
+                        case 'gain':
+                                // gain modulation
+                            break;
+                        case 'frequency':
+                                lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
+                                lfoGainNodes[i].connect(oscillators[channelIndex].frequency);
+
+                                lfoOscillators[i].connect(lfoGainNodes[i]);
+                                lfoOscillators[i].start();
+                            break;
+                        case 'pan':
+                                // pan modulation
+                            break;
+                        case 'q':
+                            // q modulation
+                        break;
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
