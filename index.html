@@ -644,13 +644,13 @@
             const connectBtn = module.querySelector('button[class="connect"]');
             const disconnectBtn = module.querySelector('button[class="disconnect"]');
 
-            lfoOscillators[i] = ctx.createOscillator();
-            lfoGainNodes[i] = ctx.createGain();
-
-            lfoOscillators[i].frequency.setValueAtTime(5, ctx.currentTime); 
-            lfoGainNodes[i].gain.setValueAtTime(50, ctx.currentTime);
-
             connectBtn.addEventListener('click', function () {
+                lfoOscillators[i] = ctx.createOscillator();
+                lfoGainNodes[i] = ctx.createGain();
+
+                lfoOscillators[i].frequency.setValueAtTime(5, ctx.currentTime); 
+                lfoGainNodes[i].gain.setValueAtTime(50, ctx.currentTime);
+                
                 const modulationVal = module.querySelector('input[type="range"]').value;
                 const checkboxes = module.querySelectorAll('input[type="checkbox"]:checked');
                 const modulationParam = module.querySelector('select.ctrl-param').value;
