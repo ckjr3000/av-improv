@@ -650,7 +650,11 @@
 
                     switch(modulationParam){
                         case 'gain':
-                                // gain modulation
+                                lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
+                                lfoGainNodes[i].connect(gainNodes[channelIndex].gain);
+
+                                lfoOscillators[i].connect(lfoGainNodes[i]);
+                                lfoOscillators[i].start();
                             break;
                         case 'frequency':
                                 lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
@@ -660,10 +664,18 @@
                                 lfoOscillators[i].start();
                             break;
                         case 'pan':
-                                // pan modulation
+                                lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
+                                lfoGainNodes[i].connect(stereoPannerNodes[channelIndex].pan);
+
+                                lfoOscillators[i].connect(lfoGainNodes[i]);
+                                lfoOscillators[i].start();
                             break;
                         case 'q':
-                            // q modulation
+                                lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
+                                lfoGainNodes[i].connect(filters[channelIndex].Q);
+
+                                lfoOscillators[i].connect(lfoGainNodes[i]);
+                                lfoOscillators[i].start();
                         break;
                     }
                 });
