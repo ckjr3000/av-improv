@@ -923,7 +923,7 @@
                     const channelIndex = parseInt(checkbox.value - 1);
 
                     switch(modulationParam){
-                        case 'gain':
+                        case 'volume':
                                 lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
                                 lfoGainNodes[i].connect(gainNodes[channelIndex].gain);
 
