@@ -320,7 +320,8 @@
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
                 </select>
-                <button type="submit">connect</button>
+                <button class="connect">connect</button>
+                <button class="disconnect">disconnect</button>
             </div>
             <div class="module lfo">
                 🕹️
@@ -341,7 +342,8 @@
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
                 </select>
-                <button type="submit">connect</button>
+                <button class="connect">connect</button>
+                <button class="disconnect">disconnect</button>
             </div>
             <div class="module lfo">
                 🕹️
@@ -362,7 +364,8 @@
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
                 </select>
-                <button type="submit">connect</button>
+                <button class="connect">connect</button>
+                <button class="disconnect">disconnect</button>
             </div>
             <div class="module lfo">
                 🕹️
@@ -383,7 +386,8 @@
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
                 </select>
-                <button type="submit">connect</button>
+                <button class="connect">connect</button>
+                <button class="disconnect">disconnect</button>
             </div>
             <div class="module lfo">
                 🕹️
@@ -404,7 +408,8 @@
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
                 </select>
-                <button type="submit">connect</button>
+                <button class="connect">connect</button>
+                <button class="disconnect">disconnect</button>
             </div>
             <div class="module lfo">
                 🕹️
@@ -425,7 +430,8 @@
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
                 </select>
-                <button type="submit">connect</button>
+                <button class="connect">connect</button>
+                <button class="disconnect">disconnect</button>
             </div>
             <div class="module lfo">
                 🕹️
@@ -446,7 +452,8 @@
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
                 </select>
-                <button type="submit">connect</button>
+                <button class="connect">connect</button>
+                <button class="disconnect">disconnect</button>
             </div>
             <div class="module lfo">
                 🕹️
@@ -467,7 +474,8 @@
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
                 </select>
-                <button type="submit">connect</button>
+                <button class="connect">connect</button>
+                <button class="disconnect">disconnect</button>
             </div>
             <div class="module lfo">
                 🕹️
@@ -488,7 +496,8 @@
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
                 </select>
-                <button type="submit">connect</button>
+                <button class="connect">connect</button>
+                <button class="disconnect">disconnect</button>
             </div>
         </div>
     </div>
@@ -632,7 +641,8 @@
         let lfoGainNodes = [];
 
         lfos.forEach((module, i) => {
-            const connectBtn = module.querySelector('button[type="submit"]');
+            const connectBtn = module.querySelector('button[class="connect"]');
+            const disconnectBtn = module.querySelector('button[class="disconnect"]');
 
             lfoOscillators[i] = ctx.createOscillator();
             lfoGainNodes[i] = ctx.createGain();
@@ -680,7 +690,13 @@
                     }
                 });
             });
-        });
+
+            disconnectBtn.addEventListener('click', function () {
+                lfoOscillators[i].stop();
+            })
+
+            });
+
     </script>
 </body>
 </html>
