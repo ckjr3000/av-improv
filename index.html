@@ -900,74 +900,79 @@
         let lfoGainNodes = [];
 
         lfos.forEach((module, i) => {
-            const connectBtn = module.querySelector('button[class="connect"]');
-            const disconnectBtn = module.querySelector('button[class="disconnect"]');
+        const connectBtn = module.querySelector('button[class="connect"]');
+        const disconnectBtn = module.querySelector('button[class="disconnect"]');
 
-            connectBtn.addEventListener('click', function () {
-                connectBtn.style = "background-color: ButtonFace";
-                disconnectBtn.style = "background-color: rgb(130, 240, 57)";
+        // Store the target module being modulated by each LFO
+        let targetModule = null;
 
-                lfoOscillators[i] = ctx.createOscillator();
-                lfoGainNodes[i] = ctx.createGain();
+        connectBtn.addEventListener('click', function () {
+            connectBtn.style = "background-color: ButtonFace";
+            disconnectBtn.style = "background-color: rgb(130, 240, 57)";
 
-                lfoOscillators[i].frequency.setValueAtTime(5, ctx.currentTime);
-                lfoGainNodes[i].gain.setValueAtTime(50, ctx.currentTime);
+            lfoOscillators[i] = ctx.createOscillator();
+            lfoGainNodes[i] = ctx.createGain();
 
-                const modulationVal = module.querySelector('input[type="range"]').value;
-                const checkboxes = module.querySelectorAll('input[type="checkbox"]:checked');
-                const modulationParam = module.querySelector('select.ctrl-param').value;
+            lfoOscillators[i].frequency.setValueAtTime(5, ctx.currentTime);
+            lfoGainNodes[i].gain.setValueAtTime(50, ctx.currentTime);
 
-                checkboxes.forEach(checkbox => {
-                    const channelIndex = parseInt(checkbox.value - 1);
-                    const channel = document.querySelectorAll('.output.channel')[channelIndex];
+            const modulationVal = module.querySelector('input[type="range"]').value;
+            const checkboxes = module.querySelectorAll('input[type="checkbox"]:checked');
+            const modulationParam = module.querySelector('select.ctrl-param').value;
 
-                    // Define the module to highlight
-                    let targetModule;
+            checkboxes.forEach(checkbox => {
+                const channelIndex = parseInt(checkbox.value - 1);
+                const channel = document.querySelectorAll('.output.channel')[channelIndex];
 
-                    switch(modulationParam) {
-                        case 'volume':
-                            targetModule = channel.querySelector('.volume');
-                            lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
-                            lfoGainNodes[i].connect(gainNodes[channelIndex].gain);
-                            break;
-                        case 'frequency':
-                            targetModule = channel.querySelector('.freq');
-                            lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
-                            lfoGainNodes[i].connect(oscillators[channelIndex].frequency);
-                            break;
-                        case 'pan':
-                            targetModule = channel.querySelector('.pan');
-                            lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
-                            lfoGainNodes[i].connect(stereoPannerNodes[channelIndex].pan);
-                            break;
-                        case 'q':
-                            targetModule = channel.querySelector('.q');
-                            lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
-                            lfoGainNodes[i].connect(filters[channelIndex].Q);
-                            break;
-                    }
+                switch(modulationParam) {
+                    case 'volume':
+                        targetModule = channel.querySelector('.volume');
+                        lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
+                        lfoGainNodes[i].connect(gainNodes[channelIndex].gain);
+                        break;
+                    case 'frequency':
+                        targetModule = channel.querySelector('.freq');
+                        lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
+                        lfoGainNodes[i].connect(oscillators[channelIndex].frequency);
+                        break;
+                    case 'pan':
+                        targetModule = channel.querySelector('.pan');
+                        lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
+                        lfoGainNodes[i].connect(stereoPannerNodes[channelIndex].pan);
+                        break;
+                    case 'q':
+                        targetModule = channel.querySelector('.q');
+                        lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
+                        lfoGainNodes[i].connect(filters[channelIndex].Q);
+                        break;
+                }
 
-                    // Apply green border to the modulated module
-                    if (targetModule) {
-                        targetModule.style.border = "2px solid rgb(130, 240, 57)";
-                    }
+                // Apply green border to the modulated module
+                if (targetModule) {
+                    targetModule.style.border = "2px solid rgb(130, 240, 57)";
+                }
 
-                    // Start the oscillator
-                    lfoOscillators[i].connect(lfoGainNodes[i]);
-                    lfoOscillators[i].start();
-                });
-            });
-
-            disconnectBtn.addEventListener('click', function () {
-                lfoOscillators[i].stop();
-                disconnectBtn.style = "background-color: ButtonFace";
-                connectBtn.style = "background-color: rgb(130, 240, 57)";
-
-                // Remove green border when disconnected
-                const modulatedModules = document.querySelectorAll('.output .module');
-                modulatedModules.forEach(mod => mod.style.border = "none");
+                // Start the oscillator
+                lfoOscillators[i].connect(lfoGainNodes[i]);
+                lfoOscillators[i].start();
             });
         });
+
+        disconnectBtn.addEventListener('click', function () {
+            lfoOscillators[i].stop();
+            disconnectBtn.style = "background-color: ButtonFace";
+            connectBtn.style = "background-color: rgb(130, 240, 57)";
+
+            // Remove the green border only from the specific module modulated by this LFO
+            if (targetModule) {
+                targetModule.style.border = "none";
+            }
+
+            // Clear the reference to the target module
+            targetModule = null;
+        });
+    });
+
 
 
     </script>
