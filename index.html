@@ -40,6 +40,11 @@
 
         button {
             color: black;
+            border: 1px solid black;
+        }
+
+        .connect {
+            background-color: rgb(130, 240, 57);
         }
 
         select {
@@ -68,7 +73,7 @@
 </head>
 <body>
     <header>
-            <p id="play">▶️</p>
+        <p id="play">▶️</p>
         <nav>
             <a href="/" target="_blank">new tab</a>
             👀
@@ -907,58 +912,71 @@
             const disconnectBtn = module.querySelector('button[class="disconnect"]');
 
             connectBtn.addEventListener('click', function () {
+                connectBtn.style = "background-color: ButtonFace";
+                disconnectBtn.style = "background-color: rgb(130, 240, 57)";
+
                 lfoOscillators[i] = ctx.createOscillator();
                 lfoGainNodes[i] = ctx.createGain();
 
-                lfoOscillators[i].frequency.setValueAtTime(5, ctx.currentTime); 
+                lfoOscillators[i].frequency.setValueAtTime(5, ctx.currentTime);
                 lfoGainNodes[i].gain.setValueAtTime(50, ctx.currentTime);
 
                 const modulationVal = module.querySelector('input[type="range"]').value;
-                console.log(modulationVal);
                 const checkboxes = module.querySelectorAll('input[type="checkbox"]:checked');
                 const modulationParam = module.querySelector('select.ctrl-param').value;
 
                 checkboxes.forEach(checkbox => {
                     const channelIndex = parseInt(checkbox.value - 1);
+                    const channel = document.querySelectorAll('.output.channel')[channelIndex];
 
-                    switch(modulationParam){
+                    // Define the module to highlight
+                    let targetModule;
+
+                    switch(modulationParam) {
                         case 'volume':
-                                lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
-                                lfoGainNodes[i].connect(gainNodes[channelIndex].gain);
-
-                                lfoOscillators[i].connect(lfoGainNodes[i]);
-                                lfoOscillators[i].start();
+                            targetModule = channel.querySelector('.volume');
+                            lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
+                            lfoGainNodes[i].connect(gainNodes[channelIndex].gain);
                             break;
                         case 'frequency':
-                                lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
-                                lfoGainNodes[i].connect(oscillators[channelIndex].frequency);
-
-                                lfoOscillators[i].connect(lfoGainNodes[i]);
-                                lfoOscillators[i].start();
+                            targetModule = channel.querySelector('.freq');
+                            lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
+                            lfoGainNodes[i].connect(oscillators[channelIndex].frequency);
                             break;
                         case 'pan':
-                                lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
-                                lfoGainNodes[i].connect(stereoPannerNodes[channelIndex].pan);
-
-                                lfoOscillators[i].connect(lfoGainNodes[i]);
-                                lfoOscillators[i].start();
+                            targetModule = channel.querySelector('.pan');
+                            lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
+                            lfoGainNodes[i].connect(stereoPannerNodes[channelIndex].pan);
                             break;
                         case 'q':
-                                lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
-                                lfoGainNodes[i].connect(filters[channelIndex].Q);
-
-                                lfoOscillators[i].connect(lfoGainNodes[i]);
-                                lfoOscillators[i].start();
-                        break;
+                            targetModule = channel.querySelector('.q');
+                            lfoGainNodes[i].gain.setValueAtTime(modulationVal, ctx.currentTime); 
+                            lfoGainNodes[i].connect(filters[channelIndex].Q);
+                            break;
                     }
+
+                    // Apply green border to the modulated module
+                    if (targetModule) {
+                        targetModule.style.border = "2px solid rgb(130, 240, 57)";
+                    }
+
+                    // Start the oscillator
+                    lfoOscillators[i].connect(lfoGainNodes[i]);
+                    lfoOscillators[i].start();
                 });
             });
 
             disconnectBtn.addEventListener('click', function () {
                 lfoOscillators[i].stop();
-            })
+                disconnectBtn.style = "background-color: ButtonFace";
+                connectBtn.style = "background-color: rgb(130, 240, 57)";
 
+                // Remove green border when disconnected
+                const modulatedModules = document.querySelectorAll('.output .module');
+                modulatedModules.forEach(mod => mod.style.border = "none");
             });
+        });
+
 
     </script>
 </body>
