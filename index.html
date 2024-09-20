@@ -525,7 +525,7 @@
                     <input type="checkbox" value="8" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
-                    <option value="volume">🔊</option>
+                    
                     <option value="frequency">🌊</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
@@ -555,7 +555,7 @@
                     <input type="checkbox" value="8" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
-                    <option value="volume">🔊</option>
+                    
                     <option value="frequency">🌊</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
@@ -585,7 +585,7 @@
                     <input type="checkbox" value="8" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
-                    <option value="volume">🔊</option>
+                    
                     <option value="frequency">🌊</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
@@ -615,7 +615,7 @@
                     <input type="checkbox" value="8" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
-                    <option value="volume">🔊</option>
+                    
                     <option value="frequency">🌊</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
@@ -645,7 +645,7 @@
                     <input type="checkbox" value="8" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
-                    <option value="volume">🔊</option>
+                    
                     <option value="frequency">🌊</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
@@ -675,7 +675,7 @@
                     <input type="checkbox" value="8" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
-                    <option value="volume">🔊</option>
+                    
                     <option value="frequency">🌊</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
@@ -705,7 +705,7 @@
                     <input type="checkbox" value="8" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
-                    <option value="volume">🔊</option>
+                    
                     <option value="frequency">🌊</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
@@ -735,7 +735,7 @@
                     <input type="checkbox" value="8" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
-                    <option value="volume">🔊</option>
+                    
                     <option value="frequency">🌊</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
@@ -765,7 +765,7 @@
                     <input type="checkbox" value="8" name="checkboxes">
                 </div>
                 <select class="ctrl-param" name="ctrl-param">
-                    <option value="volume">🔊</option>
+                    
                     <option value="frequency">🌊</option>
                     <option value="pan">🍳</option>
                     <option value="q">🇶</option>
@@ -903,8 +903,8 @@
         const connectBtn = module.querySelector('button[class="connect"]');
         const disconnectBtn = module.querySelector('button[class="disconnect"]');
 
-        // Store the target module being modulated by each LFO
-        let targetModule = null;
+        // Array to store all modulated modules for each LFO
+        let modulatedModules = [];
 
         connectBtn.addEventListener('click', function () {
             connectBtn.style = "background-color: ButtonFace";
@@ -920,10 +920,16 @@
             const checkboxes = module.querySelectorAll('input[type="checkbox"]:checked');
             const modulationParam = module.querySelector('select.ctrl-param').value;
 
+            // Reset modulated modules before each connection to avoid leftover highlights
+            modulatedModules = [];
+
+            // Iterate through all checked checkboxes (channels) and apply modulation
             checkboxes.forEach(checkbox => {
                 const channelIndex = parseInt(checkbox.value - 1);
                 const channel = document.querySelectorAll('.output.channel')[channelIndex];
+                let targetModule = null;
 
+                // Switch statement to determine which module is being modulated
                 switch(modulationParam) {
                     case 'volume':
                         targetModule = channel.querySelector('.volume');
@@ -947,15 +953,16 @@
                         break;
                 }
 
-                // Apply green border to the modulated module
+                // Apply green border to highlight the affected module, and add to the list
                 if (targetModule) {
                     targetModule.style.border = "2px solid rgb(130, 240, 57)";
+                    modulatedModules.push(targetModule);  // Store the modulated module
                 }
-
-                // Start the oscillator
-                lfoOscillators[i].connect(lfoGainNodes[i]);
-                lfoOscillators[i].start();
             });
+
+            // Start the oscillator after all connections have been made
+            lfoOscillators[i].connect(lfoGainNodes[i]);
+            lfoOscillators[i].start();
         });
 
         disconnectBtn.addEventListener('click', function () {
@@ -963,13 +970,15 @@
             disconnectBtn.style = "background-color: ButtonFace";
             connectBtn.style = "background-color: rgb(130, 240, 57)";
 
-            // Remove the green border only from the specific module modulated by this LFO
-            if (targetModule) {
-                targetModule.style.border = "none";
-            }
+            // Remove the green border from all modules that were modulated by this LFO
+            modulatedModules.forEach(targetModule => {
+                if (targetModule) {
+                    targetModule.style.border = "none";
+                }
+            });
 
-            // Clear the reference to the target module
-            targetModule = null;
+            // Clear the modulated modules array after disconnect
+            modulatedModules = [];
         });
     });
 
