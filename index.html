@@ -134,7 +134,7 @@
             </div>
             <div class="module freq">
                 🌊
-                <input type="range" min="50" max="1000" step="any" value="500">
+                <input type="range" min="50" max="1000" step="any" value="250">
             </div>
             <div class="module shape">
                 ⚒️
@@ -182,7 +182,7 @@
             </div>
             <div class="module freq">
                 🌊
-                <input type="range" min="50" max="1000" step="any" value="500">
+                <input type="range" min="50" max="1000" step="any" value="250">
             </div>
             <div class="module shape">
                 ⚒️
@@ -230,7 +230,7 @@
             </div>
             <div class="module freq">
                 🌊
-                <input type="range" min="50" max="1000" step="any" value="500">
+                <input type="range" min="50" max="1000" step="any" value="250">
             </div>
             <div class="module shape">
                 ⚒️
@@ -278,7 +278,7 @@
             </div>
             <div class="module freq">
                 🌊
-                <input type="range" min="50" max="1000" step="any" value="500">
+                <input type="range" min="50" max="1000" step="any" value="250">
             </div>
             <div class="module shape">
                 ⚒️
@@ -326,7 +326,7 @@
             </div>
             <div class="module freq">
                 🌊
-                <input type="range" min="50" max="1000" step="any" value="500">
+                <input type="range" min="50" max="1000" step="any" value="250">
             </div>
             <div class="module shape">
                 ⚒️
@@ -374,7 +374,7 @@
             </div>
             <div class="module freq">
                 🌊
-                <input type="range" min="50" max="1000" step="any" value="500">
+                <input type="range" min="50" max="1000" step="any" value="250">
             </div>
             <div class="module shape">
                 ⚒️
@@ -422,7 +422,7 @@
             </div>
             <div class="module freq">
                 🌊
-                <input type="range" min="50" max="1000" step="any" value="500">
+                <input type="range" min="50" max="1000" step="any" value="250">
             </div>
             <div class="module shape">
                 ⚒️
@@ -470,7 +470,7 @@
             </div>
             <div class="module freq">
                 🌊
-                <input type="range" min="50" max="1000" step="any" value="500">
+                <input type="range" min="50" max="1000" step="any" value="250">
             </div>
             <div class="module shape">
                 ⚒️
@@ -797,7 +797,7 @@
         play.addEventListener("click", () => {
             for(let i = 0; i < 10; i++){
                 oscillators[i] = ctx.createOscillator();
-                oscillators[i].frequency.setValueAtTime(500, ctx.currentTime);
+                oscillators[i].frequency.setValueAtTime(250, ctx.currentTime);
 
                 gainNodes[i] = ctx.createGain();
                 gainNodes[i].gain.setValueAtTime(0, ctx.currentTime);
