@@ -155,8 +155,7 @@
                 <input type="range" min="0" max="100" step="any">
             </div>
             <div class="module shaper">
-                🌊
-                ⚒️
+                🌪️
                 <input type="range" class="input-1" value="-1" min="-100" max="-1" step="any">
                 <input type="range" class="input-2" value="1" min="1" max="100" step="any">
             </div>
@@ -777,7 +776,10 @@
     </div>
 
     <script>
+        // Initialise audio context
         const ctx = new AudioContext();
+
+        // create arrays to store all nodes in the signal chain
         let oscillators = [];
         let gainNodes = [];
         let filters = [];
@@ -785,17 +787,26 @@
         let waveShaperNodes = [];
         let delayNodes = [];
 
+        let numberOfOscillators = 8;
+        let startFrequency = 250;
+
+        // User gesture to start audio context
         const play = document.getElementById('play');
         play.addEventListener("click", () => {
-            for(let i = 0; i < 10; i++){
+            for(let i = 0; i < numberOfOscillators; i++){
+                // create oscillators 
                 oscillators[i] = ctx.createOscillator();
-                oscillators[i].frequency.setValueAtTime(250, ctx.currentTime);
+                oscillators[i].frequency.setValueAtTime(startFrequency, ctx.currentTime);
 
+                // create gain nodes and set them to 0
                 gainNodes[i] = ctx.createGain();
                 gainNodes[i].gain.setValueAtTime(0, ctx.currentTime);
 
+                // create wave shaper nodes
+                // https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext/createWaveShaper
                 waveShaperNodes[i] = ctx.createWaveShaper();
 
+                // create delay nodes
                 delayNodes[i] = ctx.createDelay();
 
                 stereoPannerNodes[i] = ctx.createStereoPanner();
@@ -838,6 +849,7 @@
             })
         } 
 
+        // this makes no sense - why do i have 2 controls doing the same thing?
         const shapeCtrls = document.getElementsByClassName('shape');
         for(let i = 0; i < shapeCtrls.length; i++){
             shapeCtrls[i].addEventListener("change", (e) => {
@@ -876,10 +888,13 @@
         const shaperCtrls2 = document.getElementsByClassName('input-2');
         for(let i = 0; i < shaperCtrls1.length; i++){
             shaperCtrls1[i].addEventListener("input", (e) => {
+                // calculate the distortion curve based on the value of both inputs
                 let curve = new Float32Array([e.target.value, shaperCtrls2[i].value]);
+                console.log(curve);
                 waveShaperNodes[i].curve = curve;
             })
         }
+
         for(let i = 0; i < shaperCtrls1.length; i++){
             shaperCtrls2[i].addEventListener("input", (e) => {
                 let curve = new Float32Array([shaperCtrls1[i].value, e.target.value]);
@@ -953,14 +968,12 @@
                         break;
                 }
 
-                // Apply green border to highlight the affected module, and add to the list
                 if (targetModule) {
                     targetModule.style.border = "2px solid rgb(130, 240, 57)";
-                    modulatedModules.push(targetModule);  // Store the modulated module
+                    modulatedModules.push(targetModule); 
                 }
             });
 
-            // Start the oscillator after all connections have been made
             lfoOscillators[i].connect(lfoGainNodes[i]);
             lfoOscillators[i].start();
         });
@@ -970,14 +983,12 @@
             disconnectBtn.style = "background-color: ButtonFace";
             connectBtn.style = "background-color: rgb(130, 240, 57)";
 
-            // Remove the green border from all modules that were modulated by this LFO
             modulatedModules.forEach(targetModule => {
                 if (targetModule) {
                     targetModule.style.border = "none";
                 }
             });
 
-            // Clear the modulated modules array after disconnect
             modulatedModules = [];
         });
     });
