@@ -38,6 +38,10 @@
             cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='40' height='48' viewport='0 0 100 100' style='fill:black;font-size:24px;'><text y='50%'>🚀</text></svg>") 16 0,auto; /*!emojicursor.app*/
         }
 
+        nav {
+            text-align: center;
+        }
+
         button {
             color: black;
             border: 1px solid black;
@@ -75,45 +79,7 @@
     <header>
         <p id="play">▶️</p>
         <nav>
-            <a href="/" target="_blank">new tab</a>
-            👀
-            <a href="/" target="_blank">new tab</a>
-            ☢️
-            <a href="/" target="_blank">new tab</a>
-            🛢️
-            <a href="/" target="_blank">new tab</a>
-            🍕
-            <a href="/" target="_blank">new tab</a>
-            💬
-            <a href="/" target="_blank">new tab</a>
-            🍻
-            <a href="/" target="_blank">new tab</a>
-            👁️
-            <a href="/" target="_blank">new tab</a>
-            💀
-            <a href="/" target="_blank">new tab</a>
-            💧
-            <a href="/" target="_blank">new tab</a>
-            🌈
-            <a href="/" target="_blank">new tab</a>
-            🔥
-            <a href="/" target="_blank">new tab</a>
-            😈
-            <a href="/" target="_blank">new tab</a>
-            👽
-            <a href="/" target="_blank">new tab</a>
-            🔪
-            <a href="/" target="_blank">new tab</a>
-            ✨
-            <a href="/" target="_blank">new tab</a>
-            🛀
-            <a href="/" target="_blank">new tab</a>
-            🪐
-            <a href="/" target="_blank">new tab</a>
-            🌑
-            <a href="/" target="_blank">new tab</a>
-            ☀️
-            <a href="/" target="_blank">new tab</a>
+            <a href="/" target="_blank">new tab 🏹</a>
         </nav>
     </header>
 
@@ -809,16 +775,21 @@
                 // create delay nodes
                 delayNodes[i] = ctx.createDelay();
 
+                // create stereo panner nodes
                 stereoPannerNodes[i] = ctx.createStereoPanner();
 
+                // create filter nodes
                 filters[i] = ctx.createBiquadFilter();
 
+                // chain them all together
                 oscillators[i].connect(gainNodes[i]);
                 gainNodes[i].connect(waveShaperNodes[i]);
                 waveShaperNodes[i].connect(delayNodes[i]);
                 delayNodes[i].connect(stereoPannerNodes[i]);
                 stereoPannerNodes[i].connect(filters[i]);
                 filters[i].connect(ctx.destination);
+
+                // start the oscillators
                 oscillators[i].start();
             }
             play.innerHTML = "<p>🎉💃🔥🎉💃🔥🎉💃🔥🎉💃🔥🎉💃🔥🎉💃🔥🎉💃🔥🎉💃🔥🎉💃🔥🎉💃🔥🎉💃🔥🎉💃🔥🎉💃🔥🎉💃🔥🎉💃🔥</p>"
@@ -890,7 +861,6 @@
             shaperCtrls1[i].addEventListener("input", (e) => {
                 // calculate the distortion curve based on the value of both inputs
                 let curve = new Float32Array([e.target.value, shaperCtrls2[i].value]);
-                console.log(curve);
                 waveShaperNodes[i].curve = curve;
             })
         }
